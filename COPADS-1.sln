@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COPADS-1", "COPADS-1\COPADS-1.csproj", "{59BA6017-CDD5-4362-803F-7832E51E4A2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "du", "du\du.csproj", "{59BA6017-CDD5-4362-803F-7832E51E4A2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
