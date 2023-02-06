@@ -35,6 +35,8 @@ jobs:
         configuration: [Debug, Release]
         os: [macos-latest, windows-latest, ubuntu-latest]
 
+    runs-on: ${{ matrix.os }}
+
     env:
       Solution_Name: COPADS-1.sln                               # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
