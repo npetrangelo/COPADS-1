@@ -1,29 +1,30 @@
 ﻿// See https://aka.ms/new-console-template for more information
+namespace COPADS_1;
 
-var help = """
-Usage: du [-s] [-d] [-b] <path>
-Summarize disk usage of the set of FILES, recursively for directories.
-You MUST specify one of the parameters, -s, -d, or -b
--s Run in single threaded mode
--d Run in parallel mode (uses all available processors)
--b Run in both parallel and single threaded mode.
-Runs parallel followed by sequential mode
-""";
+class Program {
+    private static string mode, path;
+    
+    static void Main(string[] args) {
+        try {
+            ParseArgs(args);
+        } catch (InvalidInputException e) {
+            Console.WriteLine(e.Message);
+        }
+    }
 
-var mode = args[0];
-var path = args[1];
+    internal static void ParseArgs(string[] args) {
+        mode = args[0];
+        path = args[1];
 
-Console.WriteLine($"mode: {mode}");
-Console.WriteLine($"path: {path}");
-
-switch (mode) {
-    default:
-        Console.WriteLine(help);
-        break;
-    case "-s":
-        break;
-    case "-d":
-        break;
-    case "-b":
-        break;
+        switch (mode) {
+            default:
+                throw new InvalidInputException();
+            case "-s":
+                break;
+            case "-d":
+                break;
+            case "-b":
+                break;
+        }
+    }
 }
