@@ -1,4 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+using System.Text.RegularExpressions;
+
 namespace COPADS_1;
 
 class Program {
@@ -7,8 +10,18 @@ class Program {
     static void Main(string[] args) {
         try {
             ParseArgs(args);
-        } catch (InvalidInputException e) {
+        } catch (Exception e) {
             Console.WriteLine(e.Message);
+            return;
+        }
+        
+        switch (mode) {
+            case "-s":
+                break;
+            case "-d":
+                break;
+            case "-b":
+                break;
         }
     }
 
@@ -16,15 +29,12 @@ class Program {
         mode = args[0];
         path = args[1];
 
-        switch (mode) {
-            default:
-                throw new InvalidInputException();
-            case "-s":
-                break;
-            case "-d":
-                break;
-            case "-b":
-                break;
+        if (!Regex.Match(mode, @"-[sdb]").Success) {
+            throw new InvalidInputException();
+        }
+
+        if (!Path.Exists(path)) {
+            throw new Exception("Path does not exist");
         }
     }
 }

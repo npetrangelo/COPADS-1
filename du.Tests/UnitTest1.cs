@@ -15,8 +15,14 @@ public class Tests {
     }
 
     [Test]
-    public void TestInvalidInput() {
+    public void TestInvalidMode() {
         string[] args = {"foo", "~"};
         Assert.Throws<InvalidInputException>(() => Program.ParseArgs(args));
+    }
+    
+    [Test]
+    public void TestInvalidPath() {
+        string[] args = {"-s", "~/bananas/"};
+        Assert.Throws<Exception>(() => Program.ParseArgs(args));
     }
 }
