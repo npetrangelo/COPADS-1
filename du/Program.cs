@@ -84,13 +84,13 @@ class Program {
             return;
         }
 
-        Parallel.ForEach(Directory.EnumerateFiles(path), file => {
-            numFiles++;
-            numBytes += new FileInfo(file).Length;
-        });
+        foreach (var file in Directory.EnumerateFiles(path)) {
+            Interlocked.Increment(ref numFiles);
+            Interlocked.Add(ref numBytes, new FileInfo(file).Length);
+        }
 
         Parallel.ForEach(Directory.EnumerateDirectories(path), dir => {
-            numFolders++;
+            Interlocked.Increment(ref numFolders);
             try {
                 Distributed(Path.GetFullPath(dir));
             } catch (UnauthorizedAccessException) {
