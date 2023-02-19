@@ -18,6 +18,9 @@ class Program {
             return;
         }
         
+        Console.WriteLine($"Directory '{path}':");
+        Console.WriteLine();
+        
         switch (mode) {
             case "-s":
                 Do(Sequential, path);
