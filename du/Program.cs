@@ -56,7 +56,7 @@ class Program {
         var span = end - start;
         spanSeconds = span.TotalSeconds;
         Console.WriteLine($"{Method.Method.Name} Calculated in: {spanSeconds}s");
-        Console.WriteLine($"{numFolders} folders, {numFiles} files, {numBytes} bytes");
+        Console.WriteLine($"{numFolders.ToString("N0")} folders, {numFiles.ToString("N0")} files, {numBytes.ToString("N0")} bytes");
     }
     
     internal static void Sequential(string path) {
